@@ -1,164 +1,154 @@
 ## Muhammad Danial Maqbool
 
-**MS Artificial Intelligence at LUMS** (GPA 3.85/4.0) · Lahore, Pakistan
+**MS Artificial Intelligence at LUMS**, Lahore, Pakistan
 
-I build computer-vision and backend systems, mostly around healthcare data. I
-came into AI from mechanical engineering, which is where I picked up the habit
-that runs through everything below: the interesting part of a system is usually
-the failure mode nobody specified.
+I build computer vision and backend systems, mostly for healthcare data. I
+studied mechanical engineering first and moved into AI after that, which is
+probably why I tend to think about what breaks before I think about what works.
 
-The thing I care most about is **whether a result is real** — calibration,
-leakage, evaluation design, and the distance between a metric that looks good
-and a decision that holds up.
+Most of what I do comes back to one question: is the result actually real. That
+means calibration, checking for leakage, and watching the gap between a metric
+that looks good and a decision you would trust.
 
 ---
 
-## Larger projects
+## Projects
 
-These are private or unreleased repositories, described here rather than linked.
+These are private or unreleased, so they are described here rather than linked.
 
-### FHIR-compliant EHR system — primary portfolio project
+### FHIR compliant EHR system
 `FastAPI` `PostgreSQL` `Docker` `React` `TypeScript` `AWS Bedrock` `FHIR`
 
-A full-stack electronic health record system built independently and genuinely
-containerised. Clinical data passes a **two-layer validation gate** — a
-business-rules layer plus a formal FHIR validator — and anything that fails
-triggers automatic repair and re-validation before a write reaches the database.
-Every write emits a permanent audit-trail entry.
+A full stack electronic health record system I built on my own, and the one
+project here that is properly containerised. Clinical data passes two layers of
+validation, a business rules layer and then a formal FHIR validator. Anything
+that fails gets repaired and re validated before it reaches the database, and
+every write leaves a permanent audit entry.
 
-Claude via **AWS Bedrock** handles in-app clinical text features (the
-compliance-appropriate path for healthcare). Speech-to-text runs
-**faster-whisper on-device rather than through a cloud API**, a deliberate
-patient-privacy decision rather than a performance one.
+Claude runs through AWS Bedrock for the in app clinical text features, since
+that is the compliance friendly path for healthcare. Speech to text runs locally
+with faster-whisper instead of going out to a cloud API. That was a privacy
+decision rather than a performance one.
 
-200+ commits, with pytest, mypy strict, Vitest, Playwright E2E and ruff.
+Around 200 commits, with pytest, mypy in strict mode, Vitest, Playwright and
+ruff.
 
-### Diabetic retinopathy grading — knowledge distillation
+### Diabetic retinopathy grading
 `PyTorch` `EfficientNet` `CBAM` `GradCAM++` `Ordinal regression`
 
-Distilled an **EfficientNet-B4 teacher (QWK 0.91)** into a custom 5.3M-parameter
-**EfficientNet-B0 student** with multi-scale CBAM attention and a monotonic
-ordinal-regression head, reaching **QWK 0.88** after 8-view test-time
-augmentation and coordinate-ascent threshold search. APTOS 2019, 3,662 fundus
-images across five ICDR grades with heavy class imbalance.
+I distilled an EfficientNet-B4 teacher at QWK 0.91 into a 5.3M parameter
+EfficientNet-B0 student with multi scale CBAM attention and a monotonic ordinal
+regression head. The student reached QWK 0.88 after eight view test time
+augmentation and a coordinate ascent threshold search. Trained on APTOS 2019,
+3,662 fundus images across five severity grades with heavy class imbalance.
 
-Interpretability was validated rather than asserted: **GradCAM++ activations
-cross-checked against IDRiD lesion masks by IoU**. An earlier iteration that
-tried supervising attention directly on those masks underperformed and was
-dropped — the negative result is in the write-up.
+For interpretability I did not want to just show a heatmap and call it
+explainable, so I cross checked the GradCAM++ activations against IDRiD lesion
+masks by IoU. An earlier version tried supervising attention directly on those
+masks and it underperformed, so I dropped it. That failed attempt is still in
+the write up.
 
-Trained end to end on a single 8GB laptop GPU. Written up in ICML-style
-two-column format with an explicit AI-usage disclosure.
+The whole thing trained on a single 8GB laptop GPU. Written up in ICML style two
+column format with an AI usage disclosure.
 
-### Full-body AI character replacement — privacy-preserving video
+### Full body AI character replacement
 `SAM2` `ViTPose` `Wan 2.2 Animate 14B` `ComfyUI` `RunPod`
 
-Extends LUMS **SITARA** research (PerCom 2026), which demonstrated face blurring
-and basic synthetic replacement on a Raspberry Pi, toward **full-body character
-replacement with consent-based identity recovery**. A five-stage ComfyUI
-pipeline: detect and canonicalize, extract, remove the person and fill the
-background (temporal median plus Telea inpainting), generate the character, then
-composite. Includes an identity-free expression canonicaliser extracting 12
-affect scalars, so expression transfers without identity following it.
+This extends SITARA, a LUMS research project from PerCom 2026 that did face
+blurring and basic synthetic replacement on a Raspberry Pi. I am taking it
+toward full body character replacement with consent based identity recovery.
 
-*This is my own project extending that research, not the SITARA paper itself.*
+It runs as a five stage ComfyUI pipeline: detect and canonicalize, extract the
+person, remove them and fill the background with temporal median plus Telea
+inpainting, generate the character, then composite. There is also an identity
+free expression canonicaliser that pulls out 12 affect scalars, so expression
+carries over without identity following it.
 
-### Autonomous navigation — TurtleBot3 / BARN Challenge
+To be clear, this is my own project building on that research, not the SITARA
+paper itself.
+
+### Autonomous navigation, TurtleBot3 and the BARN Challenge
 `ROS 2` `LiDAR` `OpenCV` `Gazebo`
 
-Navigation across 50 randomised obstacle worlds using a four-state machine:
-LiDAR pivot → camera and PID path following → reverse recovery → artificial
-potential field evasion. The useful part was the debugging — diagnosing a
-saturated occupancy grid that was causing constant left-turn drift, removing
-that module, and adding a three-tier forward-motion safety gate verified against
-live telemetry.
+Navigation across 50 randomised obstacle worlds, using a four state machine:
+LiDAR pivot, then camera and PID path following, then reverse recovery, then
+artificial potential field evasion.
 
-### 3D Gaussian Splatting — local pipeline
+The interesting part was the debugging. The robot kept drifting left and I
+eventually traced it to a saturated occupancy grid, so I removed that module
+entirely. After that I added a three tier forward motion safety gate and checked
+it against live telemetry.
+
+### 3D Gaussian Splatting
 `Inria 3DGS` `COLMAP` `CUDA`
 
-The full video → structure-from-motion → training → viewer pipeline running
-locally on 8GB of VRAM. Mostly a toolchain fight: CUDA 11.8's `nvcc` rejects
-MSVC ≥ 14.40 when building the rasteriser, fixed by pinning the v14.39 toolset
-and scripting a reproducible environment activation.
+The full pipeline from video to structure from motion to training to viewer,
+running locally on 8GB of VRAM. Honestly this was mostly a toolchain fight. CUDA
+11.8 rejects MSVC 14.40 and above when building the rasteriser, so I pinned the
+v14.39 toolset and scripted the environment setup so I would not have to work it
+out twice.
 
-### Multi-tenant RAG chatbot service — commercial
+### Multi tenant RAG chatbot service
 `Next.js` `Supabase/pgvector` `Groq Llama 3.3 70B` `Stripe`
 
-A production service for paying clients: a one-line embeddable widget resolves
-the tenant, loads per-client persona and knowledge boundaries, retrieves over
-pgvector, and returns grounded answers. Ingestion, chunking, embedding, billing,
-trial gating and a lead-capture dashboard included. Per-client knowledge
-boundaries are enforced so the assistant refuses out-of-scope questions rather
-than improvising.
+A commercial service I run for paying clients. One line of embed code resolves
+the tenant, loads that client's persona and knowledge boundaries, retrieves over
+pgvector and returns a grounded answer. I built the ingestion side too, along
+with billing, trial gating and a lead capture dashboard.
+
+Each client gets their own knowledge boundaries, so the assistant says it does
+not know rather than making something up.
 
 ---
 
 ## Background
 
-**MS Artificial Intelligence**, LUMS SBASSE · 2025–present · GPA 3.85/4.0
-Deep Learning · Generative AI (transformers, tokenization, LoRA/PEFT, RLHF, DPO)
-· AI for Robotics
+**MS Artificial Intelligence**, LUMS SBASSE, 2025 to present
+Coursework in deep learning, generative AI (transformers, tokenization,
+LoRA/PEFT, RLHF, DPO) and AI for robotics.
 
-**B.E. Mechanical Engineering**, NUST · 2019–2023
+**B.E. Mechanical Engineering**, NUST, 2019 to 2023
 
-**Mechanical Design Engineer**, Mekex Innovation Srl — Italy, remote ·
-Jul 2023 – Jul 2025
-Delivered 8+ industrial projects as primary technical contact for an
-international client. Built Python automation for engineering workflows and led
+**Mechanical Design Engineer**, Mekex Innovation Srl, Italy, remote,
+July 2023 to July 2025
+Delivered 8+ industrial projects as the main technical contact for an
+international client. Wrote Python automation for engineering workflows and led
 junior engineers on design execution.
 
-**Freelance**, ongoing · Five years on Fiverr with **228+ reviewed
-engagements**, now focused on Python backends, web scraping and FHIR/HL7
-integration work.
+**Freelance**, ongoing
+Five years on Fiverr with 228+ reviewed engagements. These days I focus on
+Python backends, web scraping and FHIR/HL7 integration work.
 
-**Certifications** · Machine Learning Specialization (Andrew Ng, Stanford /
-Coursera) · Python Data Analysis for Healthcare (LinkedIn Learning)
+**Certifications**
+Machine Learning Specialization (Andrew Ng, Stanford and Coursera), Python Data
+Analysis for Healthcare (LinkedIn Learning)
 
 ---
 
 ## Tools
 
-**Languages** Python · C++ · TypeScript · SQL · Bash
+**Languages** Python, C++, TypeScript, SQL, Bash
 
-**ML/CV** PyTorch · scikit-learn · OpenCV · CNNs · knowledge distillation ·
-CBAM attention · GradCAM++ · ordinal regression · SAM2 · ViTPose
+**ML and CV** PyTorch, scikit-learn, OpenCV, CNNs, knowledge distillation, CBAM
+attention, GradCAM++, ordinal regression, SAM2, ViTPose
 
-**LLM** Anthropic Claude · AWS Bedrock · OpenAI · Groq · RAG · pgvector ·
-prompt and persona design
+**LLM** Anthropic Claude, AWS Bedrock, OpenAI, Groq, RAG, pgvector, prompt and
+persona design
 
-**Backend** FastAPI · PostgreSQL · Docker · REST · FHIR/HL7 v2 · audit logging
+**Backend** FastAPI, PostgreSQL, Docker, REST, FHIR and HL7 v2, audit logging
 
-**Testing** pytest · mypy strict · Vitest · Playwright · ruff
+**Testing** pytest, mypy strict, Vitest, Playwright, ruff
 
-**Robotics/3D** ROS 2 · Gazebo · LiDAR · PID · 3D Gaussian Splatting · COLMAP
-
----
-
-## Where this is going
-
-Looking for an MS thesis in **3D reconstruction and neural rendering**, with a
-long-term interest in XR — 3D Gaussian Splatting and world models are the
-concrete route in. The mechanical-engineering background is genuinely useful
-here: geometry, camera models and calibration were the day job before they were
-the research interest.
+**Robotics and 3D** ROS 2, Gazebo, LiDAR, PID, 3D Gaussian Splatting, COLMAP
 
 ---
 
-## A note on what is here
+## What I am working toward
 
-My public repositories are deliberately small and deliberately honest. Where a
-result did not hold up, the README says so:
+I am looking for an MS thesis in 3D reconstruction and neural rendering, with XR
+as the longer term interest. Gaussian splatting and world models feel like the
+practical way in.
 
-- `vecsearch` reports that its IVF was **slower than a flat scan** before the
-  optimisation, and that at 50k vectors a flat scan is a perfectly reasonable
-  production choice.
-- `rag-eval` reports a **negative result**: BM25's defaults were already optimal
-  on that corpus, and at k=5 the metric saturated so hard no retriever could be
-  told from another.
-- `schema-guard` states that its coercion layer is **partly redundant** with
-  Pydantic's lax mode, and that its real contribution is the audit trail.
-- The DR grading write-up keeps the attention-supervision experiment that
-  **failed**, rather than reporting only the version that worked.
-
-I would rather ship a result with its limitations attached than one that only
-survives if nobody checks.
+The mechanical engineering background turns out to help more than I expected
+here. Geometry, camera models and calibration were the day job long before they
+were the research interest.
