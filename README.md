@@ -126,26 +126,78 @@ international client. Wrote Python automation for engineering workflows and led
 junior engineers on design execution.
 
 **Certifications**
-Machine Learning Specialization (Andrew Ng, Stanford and Coursera), Python Data
-Analysis for Healthcare (LinkedIn Learning)
+Supervised Machine Learning: Regression and Classification (DeepLearning.AI and
+Stanford University via Coursera, 2024). Python Data Analysis for Healthcare,
+Python Object-Oriented Programming and Python Essential Training (LinkedIn
+Learning, 2024).
 
 ---
 
-## Tools
+## Skills
 
-**Languages** Python, C++, TypeScript, SQL, Bash
+**Languages**
 
-**ML and CV** PyTorch, scikit-learn, OpenCV, CNNs, knowledge distillation, CBAM
-attention, GradCAM++, ordinal regression, SAM2, ViTPose
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
 
-**LLM** Anthropic Claude, AWS Bedrock, OpenAI, Groq, RAG, pgvector, prompt and
-persona design
+**Machine learning and computer vision**
 
-**Backend** FastAPI, PostgreSQL, Docker, REST, FHIR and HL7 v2, audit logging
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 
-**Testing** pytest, mypy strict, Vitest, Playwright, ruff
+**LLM and generative AI**
 
-**Robotics and 3D** ROS 2, Gazebo, LiDAR, PID, 3D Gaussian Splatting, COLMAP
+![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+![AWS Bedrock](https://img.shields.io/badge/AWS%20Bedrock-232F3E?style=for-the-badge)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge)
+![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge)
+![pgvector](https://img.shields.io/badge/pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
+**Backend**
+
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![FHIR](https://img.shields.io/badge/FHIR-E4405F?style=for-the-badge)
+![HL7 v2](https://img.shields.io/badge/HL7%20v2-B5121B?style=for-the-badge)
+
+**Frontend**
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+**Testing and quality**
+
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![mypy](https://img.shields.io/badge/mypy-2A6DB2?style=for-the-badge)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge)
+![Ruff](https://img.shields.io/badge/Ruff-D7FF64?style=for-the-badge&logo=ruff&logoColor=black)
+
+**Robotics and 3D**
+
+![ROS 2](https://img.shields.io/badge/ROS%202-22314E?style=for-the-badge&logo=ros&logoColor=white)
+![Gazebo](https://img.shields.io/badge/Gazebo-FF6600?style=for-the-badge)
+![COLMAP](https://img.shields.io/badge/COLMAP-4B8BBE?style=for-the-badge)
+![3D Gaussian Splatting](https://img.shields.io/badge/3D%20Gaussian%20Splatting-6E44FF?style=for-the-badge)
+
+**Tooling**
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+Techniques without a logo to hang a badge on: knowledge distillation, CBAM
+attention, GradCAM++, ordinal regression, SAM2, ViTPose, RAG, prompt and
+persona design, audit logging, LiDAR and PID control.
 
 ---
 
