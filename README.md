@@ -125,10 +125,6 @@ Delivered 8+ industrial projects as the main technical contact for an
 international client. Wrote Python automation for engineering workflows and led
 junior engineers on design execution.
 
-**Freelance**, ongoing
-Five years on Fiverr with 228+ reviewed engagements. These days I focus on
-Python backends, web scraping and FHIR/HL7 integration work.
-
 **Certifications**
 Machine Learning Specialization (Andrew Ng, Stanford and Coursera), Python Data
 Analysis for Healthcare (LinkedIn Learning)
