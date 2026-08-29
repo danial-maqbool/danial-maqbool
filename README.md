@@ -14,7 +14,8 @@ that looks good and a decision you would trust.
 
 ## Projects
 
-These are private or unreleased, so they are described here rather than linked.
+Some of these are public and pinned above. The rest are private or unreleased,
+so they are described here rather than linked.
 
 ### FHIR compliant EHR system
 `FastAPI` `PostgreSQL` `Docker` `React` `TypeScript` `AWS Bedrock` `FHIR`
@@ -33,7 +34,7 @@ decision rather than a performance one.
 Around 200 commits, with pytest, mypy in strict mode, Vitest, Playwright and
 ruff.
 
-### Diabetic retinopathy grading
+### [Diabetic retinopathy grading](https://github.com/danial-maqbool/Diabetic-Retinopathy-Stage-Detection-NN-Model)
 `PyTorch` `EfficientNet` `CBAM` `GradCAM++` `Ordinal regression`
 
 I distilled an EfficientNet-B4 teacher at QWK 0.91 into a 5.3M parameter
@@ -87,6 +88,15 @@ running locally on 8GB of VRAM. Honestly this was mostly a toolchain fight. CUDA
 11.8 rejects MSVC 14.40 and above when building the rasteriser, so I pinned the
 v14.39 toolset and scripted the environment setup so I would not have to work it
 out twice.
+
+### [PaperBoxd](https://github.com/danial-maqbool/PaperBoxd)
+`Next.js` `Prisma` `TypeScript` `Vercel`
+
+A reading log for research papers. You can discover work, log what you have
+read, rate and review it, and follow what other researchers are reading. It
+pulls from OpenAlex, Crossref, arXiv and Semantic Scholar and reconciles them
+into one record, which is most of the actual work, since the same paper shows
+up differently in each. Deployed and usable.
 
 ### Multi tenant RAG chatbot service
 `Next.js` `Supabase/pgvector` `Groq Llama 3.3 70B` `Stripe`
