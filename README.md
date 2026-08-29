@@ -2,9 +2,11 @@
 
 **MS Artificial Intelligence at LUMS**, Lahore, Pakistan
 
-I build computer vision and backend systems, mostly for healthcare data. I
-studied mechanical engineering first and moved into AI after that, which is
-probably why I tend to think about what breaks before I think about what works.
+I build computer vision and backend systems, mostly for healthcare data. My
+main project, an EHR called EHR Scribe, is live at
+[healthai.today](https://healthai.today). I studied mechanical engineering first
+and moved into AI after that, which is probably why I tend to think about what
+breaks before I think about what works.
 
 Most of what I do comes back to one question: is the result actually real. That
 means calibration, checking for leakage, and watching the gap between a metric
@@ -17,14 +19,22 @@ that looks good and a decision you would trust.
 Some of these are public and pinned above. The rest are private or unreleased,
 so they are described here rather than linked.
 
-### FHIR compliant EHR system
+### EHR Scribe, a FHIR compliant EHR system
+**Live at [healthai.today](https://healthai.today)**
 `FastAPI` `PostgreSQL` `Docker` `React` `TypeScript` `AWS Bedrock` `FHIR`
 
-A full stack electronic health record system I built on my own, and the one
-project here that is properly containerised. Clinical data passes two layers of
-validation, a business rules layer and then a formal FHIR validator. Anything
-that fails gets repaired and re validated before it reaches the database, and
-every write leaves a permanent audit entry.
+A full stack electronic health record system I built on my own, now running as a
+deployed clinician workspace. It is pre production and stocked with synthetic
+patients only, and the app says so in its own banner.
+
+Clinical data passes two layers of validation, a business rules layer and then a
+formal FHIR validator. Anything that fails gets repaired and re validated before
+it reaches the database, and every write leaves a permanent audit entry.
+
+The AI assistant is deliberately advisory only. It answers from the patient's own
+chart, cites the resource each claim came from, and writes nothing to the record
+without a clinician. The UI states its own limits, including that the allergy
+filter matches allergen names and does not catch drug class cross reactivity.
 
 Claude runs through AWS Bedrock for the in app clinical text features, since
 that is the compliance friendly path for healthcare. Speech to text runs locally
